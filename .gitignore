@@ -1,0 +1,32 @@
+/.venv/
+/vendor/
+# 已完成课程项目的本地素材与产物（不入库）
+/data/
+/deliverables/
+# 本地内部文档（不随仓库分发）
+/docs/
+/target/
+node_modules/
+dist/
+*.log
+/.worktrees/
+# ticket 14：ffmpeg 源码/构建树、随包资源汇编、局部构建产物（脚本可重建）
+/build/
+/packaging/build/
+/packaging/stage/
+
+# spike 生成物（幻灯片/音轨/成片，由 run.sh 重建）
+/spikes/*/work/
+/spikes/*/work.tmp.*/
+
+# spike 的 cargo 编译缓存（脚本可重建）
+/spikes/*/target/
+
+# 早期声纹探针（已退役；参考音频只保留在 ignored data/）
+/tts-test/
+
+# tauri icon 生成的 macOS 图标（项目仅 Windows）
+/crates/cc-app/icons/icon.icns
+
+# Tauri 2 generates capability schemas during build
+/crates/cc-app/gen/

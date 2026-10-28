@@ -1,0 +1,37 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- 课影 CourseCast 应用图标源文件：课件幻灯片 + 播放 + 旁白音波 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B3D91"/>
+      <stop offset="1" stop-color="#4AA0FF"/>
+    </linearGradient>
+    <filter id="slide-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#06255C" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- 底板 -->
+  <rect x="0" y="0" width="1024" height="1024" rx="200" fill="url(#bg)"/>
+
+  <!-- 幻灯片 -->
+  <g filter="url(#slide-shadow)">
+    <rect x="172" y="232" width="680" height="440" rx="44" fill="#FFFFFF"/>
+  </g>
+
+  <!-- 文本行（讲义内容） -->
+  <rect x="236" y="300" width="290" height="30" rx="15" fill="#BFD9FF"/>
+  <rect x="236" y="354" width="200" height="30" rx="15" fill="#BFD9FF"/>
+
+  <!-- 播放三角（视频） -->
+  <path d="M450 390 L655 480 L450 570 Z" fill="#2486F2"
+        stroke="#2486F2" stroke-width="40" stroke-linejoin="round"/>
+
+  <!-- 音波（TTS 旁白） -->
+  <g fill="#2486F2">
+    <rect x="417" y="600" width="22" height="28" rx="11"/>
+    <rect x="459" y="590" width="22" height="48" rx="11"/>
+    <rect x="501" y="582" width="22" height="64" rx="11"/>
+    <rect x="543" y="590" width="22" height="48" rx="11"/>
+    <rect x="585" y="600" width="22" height="28" rx="11"/>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "CourseCast main window: core APIs (events for cc-progress, window, app)",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

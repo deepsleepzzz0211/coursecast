@@ -1,0 +1,13 @@
+{
+  "bundle": {
+    "resources": {
+      "../../packaging/stage/ffmpeg.exe": "ffmpeg.exe",
+      "../../packaging/stage/onnxruntime.dll": "onnxruntime.dll",
+      "../../packaging/stage/rvm_mobilenetv3_fp32.onnx": "rvm_mobilenetv3_fp32.onnx",
+      "../../packaging/stage/pdfium.dll": "pdfium.dll",
+      "../../packaging/stage/cc-cli.exe": "cc-cli.exe",
+      "../../packaging/stage/LICENSE": "LICENSE",
+      "../../packaging/stage/SOURCE-OFFER.txt": "SOURCE-OFFER.txt"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+[workspace]
+resolver = "2"
+members = ["crates/cc-core", "crates/cc-cli", "crates/cc-mcp", "crates/cc-app"]
+
+# matte/render tests loop over ~900 frames of pixel work; debug builds would blow the
+# 2-minute matte time budget (ticket 09), so tests build optimized
+[profile.test]
+opt-level = 2
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+# Initial adoption of the BeautifulRust lints (https://github.com/morganlinton/BeautifulRust).
+# The full `pedantic` group is intentionally not enabled yet: the tree has 300+ pre-existing
+# findings. The selected lints below are enforced now; enable more per-crate as they are paid down.
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "warn"
+missing_debug_implementations = "warn"
+unreachable_pub = "warn"
+rust_2018_idioms = { level = "warn", priority = -1 }
+# Internal workspace, not a published library API (docs are tracked separately).
+missing_docs = "allow"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+# Deferred initial baseline: 300+ pre-existing unwraps (mostly integration-test
+# helpers, which `allow-unwrap-in-tests` does not cover) and 200+ lossy casts in
+# numeric/image code. Enable per-crate after that debt is triaged; the rest of the
+# table below is enforced now.
+unwrap_used = "allow"
+expect_used = "allow"
+cast_possible_truncation = "allow"
+cast_sign_loss = "allow"
+panic_in_result_fn = "warn"
+allow_attributes = "warn"
+allow_attributes_without_reason = "warn"
+undocumented_unsafe_blocks = "warn"
+multiple_unsafe_ops_per_block = "warn"
+fn_params_excessive_bools = "warn"
+struct_excessive_bools = "warn"
+clone_on_ref_ptr = "warn"
+dbg_macro = "warn"
+todo = "warn"
+# CLI / MCP shells print by design; tests are covered by clippy.toml.
+print_stdout = "allow"
+print_stderr = "allow"
+# Numeric/image code uses `as` heavily; skip the blanket ban for now.
+as_conversions = "allow"
+# Internal workspace, not a published library API (docs are tracked separately).
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+# Noisy pedantic lints intentionally off during initial adoption.
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+
+[workspace.dependencies]
+cc-core = { path = "crates/cc-core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+dirs = "7"
+thiserror = "2"
+uuid = { version = "1", features = ["v4"] }
+time = { version = "0.3", features = ["formatting"] }
+toml = "0.8"
+clap = { version = "4", features = ["derive"] }
+tempfile = "3"
+assert_cmd = "2"
+zip = { version = "9", default-features = false, features = ["deflate"] }
+quick-xml = "0.42"
+rmcp = { version = "3", default-features = false, features = ["server", "transport-io"] }
+pdfium-render = "0.8"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "native-tls"] }
+base64 = "0.22"
+keyring = { version = "3", default-features = false, features = ["windows-native"] }
+wiremock = "0.6"
+tokio = { version = "1", default-features = false, features = ["rt", "macros", "time", "net", "io-util"] }

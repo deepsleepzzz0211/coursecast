@@ -1,0 +1,35 @@
+# 文本文件统一 LF 入库；二进制关闭行尾/文本转换
+.gitattributes text eol=lf
+.gitignore text eol=lf
+LICENSE text eol=lf
+*.rs text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.ts text eol=lf
+*.js text eol=lf
+*.vue text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.svg text eol=lf
+*.txt text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.pdf binary
+*.wav binary
+*.mp3 binary
+*.m4a binary
+*.mp4 binary
+*.mov binary
+*.onnx binary
+*.dll binary
+*.exe binary
+*.zip binary
