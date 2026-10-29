@@ -5,6 +5,7 @@
 /deliverables/
 # 本地内部文档（不随仓库分发）
 /docs/
+/.scratch/
 /target/
 node_modules/
 dist/

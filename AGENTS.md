@@ -32,7 +32,7 @@ presets remain readable and render unchanged. The browser mock
 
 ### Issue tracker
 
-Issues 以本地 markdown 文件形式存放在 `.scratch/<feature>/`。见本地 `docs/agents/issue-tracker.md`（内部文档，不随仓库分发）。
+Issues 以本地 markdown 文件形式存放在 `.scratch/<feature>/`（内部工作区，不随仓库分发）。见本地 `docs/agents/issue-tracker.md`（内部文档，不随仓库分发）。
 
 ### Triage labels
 
