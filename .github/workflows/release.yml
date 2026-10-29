@@ -108,7 +108,21 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git-cliff --config cliff.toml --latest --strip header --output release-notes.md
+          TAG="$GITHUB_REF_NAME"
+          PREV_TAG="$(git describe --tags --abbrev=0 --match 'v[0-9]*' "${TAG}^" 2>/dev/null || true)"
+          if [ -n "$PREV_TAG" ]; then
+            git-cliff --config cliff.toml --tag "$TAG" --range "${PREV_TAG}..${TAG}" --strip header --output release-notes.md
+          else
+            git-cliff --config cliff.toml --tag "$TAG" --strip header --output release-notes.md
+          fi
+          if [ ! -s release-notes.md ] || [ "$(wc -c < release-notes.md)" -lt 100 ]; then
+            {
+              echo "## $TAG"
+              echo
+              git log "$TAG" --no-merges --pretty=format:'- %s (%h)'
+              echo
+            } > release-notes.md
+          fi
           test -s release-notes.md
           cat release-notes.md
 
