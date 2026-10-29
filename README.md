@@ -4,6 +4,7 @@
 
 ![平台](https://img.shields.io/badge/平台-Windows%2010%2F11%20x64-0078D4)
 ![许可](https://img.shields.io/badge/许可-MIT-blue)
+[![Release](https://github.com/deepsleepzzz0211/coursecast/actions/workflows/release.yml/badge.svg)](https://github.com/deepsleepzzz0211/coursecast/actions/workflows/release.yml)
 
 课影是一个 Windows 桌面应用：选择课件、填入每页讲解稿、配置配音和出镜人像，就能在本地生成一门可以直接播放的微课视频。项目数据保存在本机，不依赖云端项目空间。
 
@@ -33,7 +34,7 @@
 
 ## 项目状态
 
-当前为 MVP：六步向导、本地出片、自由版式和人像兜底已可用；尚未提供公开的签名安装包，欢迎通过 issue/PR 反馈问题。
+当前为 MVP：六步向导、本地出片、自由版式和人像兜底已可用；安装包通过 Releases 自动发布，尚未代码签名，欢迎通过 issue/PR 反馈问题。
 
 ## 环境要求
 
@@ -48,10 +49,12 @@
 
 ## 安装
 
-当前仓库尚未提供公开的签名安装包。可以：
+从 [Releases](https://github.com/deepsleepzzz0211/coursecast/releases) 下载最新的 `CourseCast_*-setup.exe` 并运行。安装包未签名，Windows SmartScreen 可能提示风险；发布页同时提供 SHA-256 校验文件。
+
+如果还没有可用发布，也可以从源码运行或构建：
 
 1. **从源码运行**：适合体验和开发，见下方“从源码运行”。
-2. **构建 NSIS 安装包**：运行 `bash packaging/build-installer.sh`，产物位于 `target/release/bundle/nsis/CourseCast_*-setup.exe`。安装包未签名，Windows SmartScreen 可能提示风险。
+2. **构建 NSIS 安装包**：运行 `bash packaging/build-installer.sh`，产物位于 `target/release/bundle/nsis/CourseCast_*-setup.exe`。
 
 ## 快速开始
 
